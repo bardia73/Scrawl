@@ -1,16 +1,20 @@
-// $ANTLR 3.5.1 /home/bardia/scrawl/Scrawl.g 2016-01-22 21:49:34
+// $ANTLR 3.5.1 /home/bardia/Desktop/Scrawl/Scrawl.g 2016-01-25 12:37:55
 
 	package ir.ac.iust.scrawl;
-	import org.antlr.runtime.*;
+	import java.util.HashMap;
+	import java.util.Stack;
 
-import java.util.HashMap;
+
+import org.antlr.runtime.*;
 import java.util.Stack;
+import java.util.List;
+import java.util.ArrayList;
 
 @SuppressWarnings("all")
 public class ScrawlParser extends Parser {
 	public static final String[] tokenNames = new String[] {
 		"<invalid>", "<EOR>", "<DOWN>", "<UP>", "AND", "COMMENT", "DELETE", "DIGIT", 
-		"DIV", "EQL", "ESC", "EXP", "FLOAT", "GET", "GRQ", "GRT", "ID", "INTEGER", 
+		"DIV", "ELSE", "EQL", "ESC", "GET", "GRQ", "GRT", "ID", "IF", "INTEGER", 
 		"LBR", "LINE_COMMENT", "LSQ", "LSS", "MLP", "MNS", "NEQ", "NOT", "OR", 
 		"PLS", "POST", "PUT", "PWR", "RBR", "SS", "STRING", "TEXT", "THIS", "WS", 
 		"';'", "'='", "'@'", "'['", "']'", "'by'", "'first'", "'foreach'", "'last'", 
@@ -37,14 +41,14 @@ public class ScrawlParser extends Parser {
 	public static final int DELETE=6;
 	public static final int DIGIT=7;
 	public static final int DIV=8;
-	public static final int EQL=9;
-	public static final int ESC=10;
-	public static final int EXP=11;
-	public static final int FLOAT=12;
-	public static final int GET=13;
-	public static final int GRQ=14;
-	public static final int GRT=15;
-	public static final int ID=16;
+	public static final int ELSE=9;
+	public static final int EQL=10;
+	public static final int ESC=11;
+	public static final int GET=12;
+	public static final int GRQ=13;
+	public static final int GRT=14;
+	public static final int ID=15;
+	public static final int IF=16;
 	public static final int INTEGER=17;
 	public static final int LBR=18;
 	public static final int LINE_COMMENT=19;
@@ -82,7 +86,7 @@ public class ScrawlParser extends Parser {
 	}
 
 	@Override public String[] getTokenNames() { return ScrawlParser.tokenNames; }
-	@Override public String getGrammarFileName() { return "/home/bardia/scrawl/Scrawl.g"; }
+	@Override public String getGrammarFileName() { return "/home/bardia/Desktop/Scrawl/Scrawl.g"; }
 
 
 		Stack<Integer> block = new Stack<>();
@@ -183,7 +187,7 @@ public class ScrawlParser extends Parser {
 
 
 	// $ANTLR start "root"
-	// /home/bardia/scrawl/Scrawl.g:112:1: root returns [String code] : mainRoutine ( procedure )* ;
+	// /home/bardia/Desktop/Scrawl/Scrawl.g:112:1: root returns [String code] : mainRoutine ( procedure )* ;
 	public final String root() throws RecognitionException {
 		String code = null;
 
@@ -192,8 +196,8 @@ public class ScrawlParser extends Parser {
 		String procedure2 =null;
 
 		try {
-			// /home/bardia/scrawl/Scrawl.g:112:28: ( mainRoutine ( procedure )* )
-			// /home/bardia/scrawl/Scrawl.g:113:5: mainRoutine ( procedure )*
+			// /home/bardia/Desktop/Scrawl/Scrawl.g:112:28: ( mainRoutine ( procedure )* )
+			// /home/bardia/Desktop/Scrawl/Scrawl.g:113:5: mainRoutine ( procedure )*
 			{
 
 			        id2Info = new HashMap<>();
@@ -205,7 +209,7 @@ public class ScrawlParser extends Parser {
 			state._fsp--;
 
 			code = mainRoutine1; 
-			// /home/bardia/scrawl/Scrawl.g:118:46: ( procedure )*
+			// /home/bardia/Desktop/Scrawl/Scrawl.g:118:46: ( procedure )*
 			loop1:
 			while (true) {
 				int alt1=2;
@@ -216,7 +220,7 @@ public class ScrawlParser extends Parser {
 
 				switch (alt1) {
 				case 1 :
-					// /home/bardia/scrawl/Scrawl.g:118:47: procedure
+					// /home/bardia/Desktop/Scrawl/Scrawl.g:118:47: procedure
 					{
 					pushFollow(FOLLOW_procedure_in_root53);
 					procedure2=procedure();
@@ -249,7 +253,7 @@ public class ScrawlParser extends Parser {
 
 
 	// $ANTLR start "procedure"
-	// /home/bardia/scrawl/Scrawl.g:120:1: procedure returns [String code] : 'procedure' ID block ;
+	// /home/bardia/Desktop/Scrawl/Scrawl.g:120:1: procedure returns [String code] : 'procedure' ID block ;
 	public final String procedure() throws RecognitionException {
 		String code = null;
 
@@ -258,8 +262,8 @@ public class ScrawlParser extends Parser {
 		String block4 =null;
 
 		try {
-			// /home/bardia/scrawl/Scrawl.g:120:32: ( 'procedure' ID block )
-			// /home/bardia/scrawl/Scrawl.g:121:5: 'procedure' ID block
+			// /home/bardia/Desktop/Scrawl/Scrawl.g:120:32: ( 'procedure' ID block )
+			// /home/bardia/Desktop/Scrawl/Scrawl.g:121:5: 'procedure' ID block
 			{
 			match(input,49,FOLLOW_49_in_procedure74); 
 			ID3=(Token)match(input,ID,FOLLOW_ID_in_procedure76); 
@@ -291,7 +295,7 @@ public class ScrawlParser extends Parser {
 
 
 	// $ANTLR start "mainRoutine"
-	// /home/bardia/scrawl/Scrawl.g:129:1: mainRoutine returns [String code] : 'main' block ;
+	// /home/bardia/Desktop/Scrawl/Scrawl.g:129:1: mainRoutine returns [String code] : 'main' block ;
 	public final String mainRoutine() throws RecognitionException {
 		String code = null;
 
@@ -299,8 +303,8 @@ public class ScrawlParser extends Parser {
 		String block5 =null;
 
 		try {
-			// /home/bardia/scrawl/Scrawl.g:129:34: ( 'main' block )
-			// /home/bardia/scrawl/Scrawl.g:130:5: 'main' block
+			// /home/bardia/Desktop/Scrawl/Scrawl.g:129:34: ( 'main' block )
+			// /home/bardia/Desktop/Scrawl/Scrawl.g:130:5: 'main' block
 			{
 			match(input,46,FOLLOW_46_in_mainRoutine95); 
 			pushFollow(FOLLOW_block_in_mainRoutine97);
@@ -309,7 +313,6 @@ public class ScrawlParser extends Parser {
 
 			 code = ".class public Scrawlout \n"
 			                     + ".super java/lang/Object \n"
-
 			                     + ".method public <init>()V \n"
 			                     + "aload_0 \n"
 			                     + "invokenonvirtual java/lang/Object/<init>()V \n"
@@ -340,7 +343,7 @@ public class ScrawlParser extends Parser {
 
 
 	// $ANTLR start "block"
-	// /home/bardia/scrawl/Scrawl.g:147:1: block returns [String code] : '{' ( statement )* '}' ;
+	// /home/bardia/Desktop/Scrawl/Scrawl.g:146:1: block returns [String code] : '{' ( statement )* '}' ;
 	public final String block() throws RecognitionException {
 		String code = null;
 
@@ -348,26 +351,26 @@ public class ScrawlParser extends Parser {
 		String statement6 =null;
 
 		try {
-			// /home/bardia/scrawl/Scrawl.g:147:28: ( '{' ( statement )* '}' )
-			// /home/bardia/scrawl/Scrawl.g:148:5: '{' ( statement )* '}'
+			// /home/bardia/Desktop/Scrawl/Scrawl.g:146:28: ( '{' ( statement )* '}' )
+			// /home/bardia/Desktop/Scrawl/Scrawl.g:147:5: '{' ( statement )* '}'
 			{
 			match(input,50,FOLLOW_50_in_block114); 
 
 			    		code = "";
 			    		block.push(0);
 			    	
-			// /home/bardia/scrawl/Scrawl.g:152:14: ( statement )*
+			// /home/bardia/Desktop/Scrawl/Scrawl.g:151:14: ( statement )*
 			loop2:
 			while (true) {
 				int alt2=2;
 				int LA2_0 = input.LA(1);
-				if ( (LA2_0==GET||LA2_0==ID||LA2_0==POST||LA2_0==44||(LA2_0 >= 47 && LA2_0 <= 48)) ) {
+				if ( (LA2_0==GET||(LA2_0 >= ID && LA2_0 <= IF)||LA2_0==POST||LA2_0==44||(LA2_0 >= 47 && LA2_0 <= 48)) ) {
 					alt2=1;
 				}
 
 				switch (alt2) {
 				case 1 :
-					// /home/bardia/scrawl/Scrawl.g:152:15: statement
+					// /home/bardia/Desktop/Scrawl/Scrawl.g:151:15: statement
 					{
 					pushFollow(FOLLOW_statement_in_block132);
 					statement6=statement();
@@ -401,7 +404,7 @@ public class ScrawlParser extends Parser {
 
 
 	// $ANTLR start "statement"
-	// /home/bardia/scrawl/Scrawl.g:155:1: statement returns [String code] : ( reqSt | assSt | foreachSt | parseSt | printSt );
+	// /home/bardia/Desktop/Scrawl/Scrawl.g:154:1: statement returns [String code] : ( reqSt | assSt | foreachSt | parseSt | printSt | ifSt );
 	public final String statement() throws RecognitionException {
 		String code = null;
 
@@ -410,10 +413,11 @@ public class ScrawlParser extends Parser {
 		String assSt8 =null;
 		String foreachSt9 =null;
 		String printSt10 =null;
+		String ifSt11 =null;
 
 		try {
-			// /home/bardia/scrawl/Scrawl.g:155:32: ( reqSt | assSt | foreachSt | parseSt | printSt )
-			int alt3=5;
+			// /home/bardia/Desktop/Scrawl/Scrawl.g:154:32: ( reqSt | assSt | foreachSt | parseSt | printSt | ifSt )
+			int alt3=6;
 			switch ( input.LA(1) ) {
 			case GET:
 			case POST:
@@ -441,6 +445,11 @@ public class ScrawlParser extends Parser {
 				alt3=5;
 				}
 				break;
+			case IF:
+				{
+				alt3=6;
+				}
+				break;
 			default:
 				NoViableAltException nvae =
 					new NoViableAltException("", 3, 0, input);
@@ -448,7 +457,7 @@ public class ScrawlParser extends Parser {
 			}
 			switch (alt3) {
 				case 1 :
-					// /home/bardia/scrawl/Scrawl.g:156:5: reqSt
+					// /home/bardia/Desktop/Scrawl/Scrawl.g:155:5: reqSt
 					{
 					pushFollow(FOLLOW_reqSt_in_statement159);
 					reqSt7=reqSt();
@@ -458,7 +467,7 @@ public class ScrawlParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /home/bardia/scrawl/Scrawl.g:157:6: assSt
+					// /home/bardia/Desktop/Scrawl/Scrawl.g:156:6: assSt
 					{
 					pushFollow(FOLLOW_assSt_in_statement168);
 					assSt8=assSt();
@@ -468,7 +477,7 @@ public class ScrawlParser extends Parser {
 					}
 					break;
 				case 3 :
-					// /home/bardia/scrawl/Scrawl.g:158:6: foreachSt
+					// /home/bardia/Desktop/Scrawl/Scrawl.g:157:6: foreachSt
 					{
 					pushFollow(FOLLOW_foreachSt_in_statement176);
 					foreachSt9=foreachSt();
@@ -478,7 +487,7 @@ public class ScrawlParser extends Parser {
 					}
 					break;
 				case 4 :
-					// /home/bardia/scrawl/Scrawl.g:159:6: parseSt
+					// /home/bardia/Desktop/Scrawl/Scrawl.g:158:6: parseSt
 					{
 					pushFollow(FOLLOW_parseSt_in_statement185);
 					parseSt();
@@ -487,13 +496,23 @@ public class ScrawlParser extends Parser {
 					}
 					break;
 				case 5 :
-					// /home/bardia/scrawl/Scrawl.g:160:6: printSt
+					// /home/bardia/Desktop/Scrawl/Scrawl.g:159:6: printSt
 					{
 					pushFollow(FOLLOW_printSt_in_statement192);
 					printSt10=printSt();
 					state._fsp--;
 
 					 code = printSt10; 
+					}
+					break;
+				case 6 :
+					// /home/bardia/Desktop/Scrawl/Scrawl.g:160:6: ifSt
+					{
+					pushFollow(FOLLOW_ifSt_in_statement201);
+					ifSt11=ifSt();
+					state._fsp--;
+
+					 code = ifSt11; 
 					}
 					break;
 
@@ -513,16 +532,16 @@ public class ScrawlParser extends Parser {
 
 
 	// $ANTLR start "reqSt"
-	// /home/bardia/scrawl/Scrawl.g:162:1: reqSt returns [String code] : ( getReqSt | postReqSt );
+	// /home/bardia/Desktop/Scrawl/Scrawl.g:162:1: reqSt returns [String code] : ( getReqSt | postReqSt );
 	public final String reqSt() throws RecognitionException {
 		String code = null;
 
 
-		String getReqSt11 =null;
-		String postReqSt12 =null;
+		String getReqSt12 =null;
+		String postReqSt13 =null;
 
 		try {
-			// /home/bardia/scrawl/Scrawl.g:162:29: ( getReqSt | postReqSt )
+			// /home/bardia/Desktop/Scrawl/Scrawl.g:162:29: ( getReqSt | postReqSt )
 			int alt4=2;
 			int LA4_0 = input.LA(1);
 			if ( (LA4_0==GET) ) {
@@ -540,23 +559,23 @@ public class ScrawlParser extends Parser {
 
 			switch (alt4) {
 				case 1 :
-					// /home/bardia/scrawl/Scrawl.g:163:2: getReqSt
+					// /home/bardia/Desktop/Scrawl/Scrawl.g:163:2: getReqSt
 					{
-					pushFollow(FOLLOW_getReqSt_in_reqSt208);
-					getReqSt11=getReqSt();
+					pushFollow(FOLLOW_getReqSt_in_reqSt217);
+					getReqSt12=getReqSt();
 					state._fsp--;
 
-					 code = getReqSt11; 
+					 code = getReqSt12; 
 					}
 					break;
 				case 2 :
-					// /home/bardia/scrawl/Scrawl.g:164:3: postReqSt
+					// /home/bardia/Desktop/Scrawl/Scrawl.g:164:3: postReqSt
 					{
-					pushFollow(FOLLOW_postReqSt_in_reqSt214);
-					postReqSt12=postReqSt();
+					pushFollow(FOLLOW_postReqSt_in_reqSt223);
+					postReqSt13=postReqSt();
 					state._fsp--;
 
-					 code = postReqSt12; 
+					 code = postReqSt13; 
 					}
 					break;
 
@@ -576,36 +595,36 @@ public class ScrawlParser extends Parser {
 
 
 	// $ANTLR start "getReqSt"
-	// /home/bardia/scrawl/Scrawl.g:166:1: getReqSt returns [String code] : GET exp block ;
+	// /home/bardia/Desktop/Scrawl/Scrawl.g:166:1: getReqSt returns [String code] : GET exp block ;
 	public final String getReqSt() throws RecognitionException {
 		String code = null;
 
 
-		ParserRuleReturnScope exp13 =null;
-		String block14 =null;
+		ParserRuleReturnScope exp14 =null;
+		String block15 =null;
 
 		try {
-			// /home/bardia/scrawl/Scrawl.g:166:31: ( GET exp block )
-			// /home/bardia/scrawl/Scrawl.g:167:2: GET exp block
+			// /home/bardia/Desktop/Scrawl/Scrawl.g:166:31: ( GET exp block )
+			// /home/bardia/Desktop/Scrawl/Scrawl.g:167:2: GET exp block
 			{
-			match(input,GET,FOLLOW_GET_in_getReqSt228); 
-			pushFollow(FOLLOW_exp_in_getReqSt230);
-			exp13=exp();
+			match(input,GET,FOLLOW_GET_in_getReqSt237); 
+			pushFollow(FOLLOW_exp_in_getReqSt239);
+			exp14=exp();
 			state._fsp--;
 
 
 						int t = block.pop()+1;
 						block.push(t);
-						put(whatIsThis1(),(exp13!=null?((exp_return)exp13).type:null));
-						code = (exp13!=null?((exp_return)exp13).code:null)
+						put(whatIsThis1(),(exp14!=null?((exp_return)exp14).type:null));
+						code = (exp14!=null?((exp_return)exp14).code:null)
 							+ "invokestatic ir/ac/iust/scrawl/scrawlib/Helper/Get(Ljava/lang/String;)Lorg/jsoup/nodes/Document; \n"
 							+ "astore_"+getLocalIndex(whatIsThis1())+" \n";
 					
-			pushFollow(FOLLOW_block_in_getReqSt238);
-			block14=block();
+			pushFollow(FOLLOW_block_in_getReqSt247);
+			block15=block();
 			state._fsp--;
 
-			code += block14;
+			code += block15;
 			}
 
 		}
@@ -623,20 +642,23 @@ public class ScrawlParser extends Parser {
 
 
 	// $ANTLR start "postReqSt"
-	// /home/bardia/scrawl/Scrawl.g:178:1: postReqSt returns [String code] : POST STRING block ;
+	// /home/bardia/Desktop/Scrawl/Scrawl.g:178:1: postReqSt returns [String code] : POST exp block ;
 	public final String postReqSt() throws RecognitionException {
 		String code = null;
 
 
 		try {
-			// /home/bardia/scrawl/Scrawl.g:178:32: ( POST STRING block )
-			// /home/bardia/scrawl/Scrawl.g:179:2: POST STRING block
+			// /home/bardia/Desktop/Scrawl/Scrawl.g:178:32: ( POST exp block )
+			// /home/bardia/Desktop/Scrawl/Scrawl.g:179:2: POST exp block
 			{
-			match(input,POST,FOLLOW_POST_in_postReqSt251); 
-			match(input,STRING,FOLLOW_STRING_in_postReqSt253); 
+			match(input,POST,FOLLOW_POST_in_postReqSt260); 
+			pushFollow(FOLLOW_exp_in_postReqSt262);
+			exp();
+			state._fsp--;
+
 
 					
-			pushFollow(FOLLOW_block_in_postReqSt259);
+			pushFollow(FOLLOW_block_in_postReqSt268);
 			block();
 			state._fsp--;
 
@@ -656,36 +678,168 @@ public class ScrawlParser extends Parser {
 
 
 
+	// $ANTLR start "ifSt"
+	// /home/bardia/Desktop/Scrawl/Scrawl.g:183:1: ifSt returns [String code] : ( IF conditionSt a= block ) ( ELSE b= block )? ;
+	public final String ifSt() throws RecognitionException {
+		String code = null;
+
+
+		String a =null;
+		String b =null;
+		String conditionSt16 =null;
+
+		try {
+			// /home/bardia/Desktop/Scrawl/Scrawl.g:183:27: ( ( IF conditionSt a= block ) ( ELSE b= block )? )
+			// /home/bardia/Desktop/Scrawl/Scrawl.g:184:2: ( IF conditionSt a= block ) ( ELSE b= block )?
+			{
+			// /home/bardia/Desktop/Scrawl/Scrawl.g:184:2: ( IF conditionSt a= block )
+			// /home/bardia/Desktop/Scrawl/Scrawl.g:184:3: IF conditionSt a= block
+			{
+			match(input,IF,FOLLOW_IF_in_ifSt281); 
+			pushFollow(FOLLOW_conditionSt_in_ifSt283);
+			conditionSt16=conditionSt();
+			state._fsp--;
+
+			pushFollow(FOLLOW_block_in_ifSt287);
+			a=block();
+			state._fsp--;
+
+			}
+
+
+					String end_if = newLable();
+					String if_else = newLable();
+					
+					code = conditionSt16 
+					+ if_else + "\n" 
+					+ a 
+					+ "goto " + end_if + "\n"
+					+ if_else + ":\n";
+				
+			// /home/bardia/Desktop/Scrawl/Scrawl.g:195:2: ( ELSE b= block )?
+			int alt5=2;
+			int LA5_0 = input.LA(1);
+			if ( (LA5_0==ELSE) ) {
+				alt5=1;
+			}
+			switch (alt5) {
+				case 1 :
+					// /home/bardia/Desktop/Scrawl/Scrawl.g:195:3: ELSE b= block
+					{
+					match(input,ELSE,FOLLOW_ELSE_in_ifSt295); 
+					pushFollow(FOLLOW_block_in_ifSt299);
+					b=block();
+					state._fsp--;
+
+
+							code += b;
+						
+					}
+					break;
+
+			}
+
+
+					code += end_if + ":\n";
+				
+			}
+
+		}
+		catch (RecognitionException re) {
+			reportError(re);
+			recover(input,re);
+		}
+		finally {
+			// do for sure before leaving
+		}
+		return code;
+	}
+	// $ANTLR end "ifSt"
+
+
+
+	// $ANTLR start "conditionSt"
+	// /home/bardia/Desktop/Scrawl/Scrawl.g:203:1: conditionSt returns [String code] : a= exp EQL b= exp ;
+	public final String conditionSt() throws RecognitionException {
+		String code = null;
+
+
+		ParserRuleReturnScope a =null;
+		ParserRuleReturnScope b =null;
+
+		try {
+			// /home/bardia/Desktop/Scrawl/Scrawl.g:203:34: (a= exp EQL b= exp )
+			// /home/bardia/Desktop/Scrawl/Scrawl.g:204:2: a= exp EQL b= exp
+			{
+			pushFollow(FOLLOW_exp_in_conditionSt323);
+			a=exp();
+			state._fsp--;
+
+			match(input,EQL,FOLLOW_EQL_in_conditionSt325); 
+			pushFollow(FOLLOW_exp_in_conditionSt329);
+			b=exp();
+			state._fsp--;
+
+
+					if ((a!=null?((exp_return)a).type:null) == (b!=null?((exp_return)b).type:null)){
+						switch((a!=null?((exp_return)a).type:null)){
+							case STRING:
+								code = (a!=null?((exp_return)a).code:null) + (b!=null?((exp_return)b).code:null) + "if_acmpne ";
+								break;
+							case INTEGER:
+								code = (a!=null?((exp_return)a).code:null) + (b!=null?((exp_return)b).code:null) + "if_icmpne ";
+								break;
+							default:
+								System.err.println("Not supported condition");
+						}
+					}
+				
+			}
+
+		}
+		catch (RecognitionException re) {
+			reportError(re);
+			recover(input,re);
+		}
+		finally {
+			// do for sure before leaving
+		}
+		return code;
+	}
+	// $ANTLR end "conditionSt"
+
+
+
 	// $ANTLR start "assSt"
-	// /home/bardia/scrawl/Scrawl.g:183:1: assSt returns [String code] : ID '=' exp ';' ;
+	// /home/bardia/Desktop/Scrawl/Scrawl.g:219:1: assSt returns [String code] : ID '=' exp ';' ;
 	public final String assSt() throws RecognitionException {
 		String code = null;
 
 
-		Token ID15=null;
-		ParserRuleReturnScope exp16 =null;
+		Token ID17=null;
+		ParserRuleReturnScope exp18 =null;
 
 		try {
-			// /home/bardia/scrawl/Scrawl.g:183:27: ( ID '=' exp ';' )
-			// /home/bardia/scrawl/Scrawl.g:184:2: ID '=' exp ';'
+			// /home/bardia/Desktop/Scrawl/Scrawl.g:219:27: ( ID '=' exp ';' )
+			// /home/bardia/Desktop/Scrawl/Scrawl.g:220:2: ID '=' exp ';'
 			{
-			ID15=(Token)match(input,ID,FOLLOW_ID_in_assSt270); 
-			match(input,38,FOLLOW_38_in_assSt272); 
-			pushFollow(FOLLOW_exp_in_assSt274);
-			exp16=exp();
+			ID17=(Token)match(input,ID,FOLLOW_ID_in_assSt343); 
+			match(input,38,FOLLOW_38_in_assSt345); 
+			pushFollow(FOLLOW_exp_in_assSt347);
+			exp18=exp();
 			state._fsp--;
 
-			match(input,37,FOLLOW_37_in_assSt276); 
+			match(input,37,FOLLOW_37_in_assSt349); 
 
-					put((ID15!=null?ID15.getText():null),(exp16!=null?((exp_return)exp16).type:null));
-					code = (exp16!=null?((exp_return)exp16).code:null);
+					put((ID17!=null?ID17.getText():null),(exp18!=null?((exp_return)exp18).type:null));
+					code = (exp18!=null?((exp_return)exp18).code:null);
 					
-					switch((exp16!=null?((exp_return)exp16).type:null)){
+					switch((exp18!=null?((exp_return)exp18).type:null)){
 			    	    case INTEGER:
-			    	        code += "istore_"+getLocalIndex((ID15!=null?ID15.getText():null))+"\n";
+			    	        code += "istore_"+getLocalIndex((ID17!=null?ID17.getText():null))+"\n";
 			    	        break;
 			    	    default:
-			    	        code += "astore_"+getLocalIndex((ID15!=null?ID15.getText():null))+"\n";
+			    	        code += "astore_"+getLocalIndex((ID17!=null?ID17.getText():null))+"\n";
 			    	        break;
 					}
 				
@@ -706,21 +860,21 @@ public class ScrawlParser extends Parser {
 
 
 	// $ANTLR start "foreachSt"
-	// /home/bardia/scrawl/Scrawl.g:199:1: foreachSt returns [String code] : 'foreach' exp block ;
+	// /home/bardia/Desktop/Scrawl/Scrawl.g:235:1: foreachSt returns [String code] : 'foreach' exp block ;
 	public final String foreachSt() throws RecognitionException {
 		String code = null;
 
 
-		ParserRuleReturnScope exp17 =null;
-		String block18 =null;
+		ParserRuleReturnScope exp19 =null;
+		String block20 =null;
 
 		try {
-			// /home/bardia/scrawl/Scrawl.g:199:31: ( 'foreach' exp block )
-			// /home/bardia/scrawl/Scrawl.g:200:5: 'foreach' exp block
+			// /home/bardia/Desktop/Scrawl/Scrawl.g:235:31: ( 'foreach' exp block )
+			// /home/bardia/Desktop/Scrawl/Scrawl.g:236:5: 'foreach' exp block
 			{
-			match(input,44,FOLLOW_44_in_foreachSt293); 
-			pushFollow(FOLLOW_exp_in_foreachSt295);
-			exp17=exp();
+			match(input,44,FOLLOW_44_in_foreachSt366); 
+			pushFollow(FOLLOW_exp_in_foreachSt368);
+			exp19=exp();
 			state._fsp--;
 
 
@@ -731,8 +885,7 @@ public class ScrawlParser extends Parser {
 						put(temp,Type.ELEMENTS);
 			    		String startLable = newLable();
 			    		String endLable = newLable();
-			    		code ="aload_"+getLocalIndex(whatIsThis())+"\n"
-						+ (exp17!=null?((exp_return)exp17).code:null)
+			    		code = (exp19!=null?((exp_return)exp19).code:null)
 			    			+ "invokevirtual org/jsoup/select/Elements/iterator()Ljava/util/Iterator; \n"
 			    			+ "astore_"+getLocalIndex(temp)+"\n"
 			    			+ startLable+":\n"
@@ -744,12 +897,12 @@ public class ScrawlParser extends Parser {
 			                + "checkcast org/jsoup/nodes/Element\n"
 			                + "astore_"+getLocalIndex(whatIsThis1())+"\n";
 					
-			pushFollow(FOLLOW_block_in_foreachSt309);
-			block18=block();
+			pushFollow(FOLLOW_block_in_foreachSt382);
+			block20=block();
 			state._fsp--;
 
 
-			     		code += block18
+			     		code += block20
 			     			+ "goto "+startLable+"\n"
 			     			+ endLable+":\n";
 			     	
@@ -770,24 +923,24 @@ public class ScrawlParser extends Parser {
 
 
 	// $ANTLR start "parseSt"
-	// /home/bardia/scrawl/Scrawl.g:229:1: parseSt : ( 'parse' 'first' exp 'by' ID ';' | 'parse' 'last' exp 'by' ID ';' );
+	// /home/bardia/Desktop/Scrawl/Scrawl.g:264:1: parseSt : ( 'parse' 'first' exp 'by' ID ';' | 'parse' 'last' exp 'by' ID ';' );
 	public final void parseSt() throws RecognitionException {
-		Token ID19=null;
 		Token ID21=null;
-		ParserRuleReturnScope exp20 =null;
+		Token ID23=null;
 		ParserRuleReturnScope exp22 =null;
+		ParserRuleReturnScope exp24 =null;
 
 		try {
-			// /home/bardia/scrawl/Scrawl.g:229:9: ( 'parse' 'first' exp 'by' ID ';' | 'parse' 'last' exp 'by' ID ';' )
-			int alt5=2;
-			int LA5_0 = input.LA(1);
-			if ( (LA5_0==47) ) {
-				int LA5_1 = input.LA(2);
-				if ( (LA5_1==43) ) {
-					alt5=1;
+			// /home/bardia/Desktop/Scrawl/Scrawl.g:264:9: ( 'parse' 'first' exp 'by' ID ';' | 'parse' 'last' exp 'by' ID ';' )
+			int alt6=2;
+			int LA6_0 = input.LA(1);
+			if ( (LA6_0==47) ) {
+				int LA6_1 = input.LA(2);
+				if ( (LA6_1==43) ) {
+					alt6=1;
 				}
-				else if ( (LA5_1==45) ) {
-					alt5=2;
+				else if ( (LA6_1==45) ) {
+					alt6=2;
 				}
 
 				else {
@@ -795,7 +948,7 @@ public class ScrawlParser extends Parser {
 					try {
 						input.consume();
 						NoViableAltException nvae =
-							new NoViableAltException("", 5, 1, input);
+							new NoViableAltException("", 6, 1, input);
 						throw nvae;
 					} finally {
 						input.rewind(nvaeMark);
@@ -806,39 +959,39 @@ public class ScrawlParser extends Parser {
 
 			else {
 				NoViableAltException nvae =
-					new NoViableAltException("", 5, 0, input);
+					new NoViableAltException("", 6, 0, input);
 				throw nvae;
 			}
 
-			switch (alt5) {
+			switch (alt6) {
 				case 1 :
-					// /home/bardia/scrawl/Scrawl.g:229:11: 'parse' 'first' exp 'by' ID ';'
+					// /home/bardia/Desktop/Scrawl/Scrawl.g:264:11: 'parse' 'first' exp 'by' ID ';'
 					{
-					match(input,47,FOLLOW_47_in_parseSt326); 
-					match(input,43,FOLLOW_43_in_parseSt328); 
-					pushFollow(FOLLOW_exp_in_parseSt330);
-					exp20=exp();
-					state._fsp--;
-
-					match(input,42,FOLLOW_42_in_parseSt332); 
-					ID19=(Token)match(input,ID,FOLLOW_ID_in_parseSt334); 
-					match(input,37,FOLLOW_37_in_parseSt336); 
-					 System.out.println((ID19!=null?ID19.getText():null)+"("+(exp20!=null?((exp_return)exp20).code:null)+")");
-					}
-					break;
-				case 2 :
-					// /home/bardia/scrawl/Scrawl.g:231:4: 'parse' 'last' exp 'by' ID ';'
-					{
-					match(input,47,FOLLOW_47_in_parseSt347); 
-					match(input,45,FOLLOW_45_in_parseSt349); 
-					pushFollow(FOLLOW_exp_in_parseSt351);
+					match(input,47,FOLLOW_47_in_parseSt399); 
+					match(input,43,FOLLOW_43_in_parseSt401); 
+					pushFollow(FOLLOW_exp_in_parseSt403);
 					exp22=exp();
 					state._fsp--;
 
-					match(input,42,FOLLOW_42_in_parseSt353); 
-					ID21=(Token)match(input,ID,FOLLOW_ID_in_parseSt355); 
-					match(input,37,FOLLOW_37_in_parseSt357); 
+					match(input,42,FOLLOW_42_in_parseSt405); 
+					ID21=(Token)match(input,ID,FOLLOW_ID_in_parseSt407); 
+					match(input,37,FOLLOW_37_in_parseSt409); 
 					 System.out.println((ID21!=null?ID21.getText():null)+"("+(exp22!=null?((exp_return)exp22).code:null)+")");
+					}
+					break;
+				case 2 :
+					// /home/bardia/Desktop/Scrawl/Scrawl.g:266:4: 'parse' 'last' exp 'by' ID ';'
+					{
+					match(input,47,FOLLOW_47_in_parseSt420); 
+					match(input,45,FOLLOW_45_in_parseSt422); 
+					pushFollow(FOLLOW_exp_in_parseSt424);
+					exp24=exp();
+					state._fsp--;
+
+					match(input,42,FOLLOW_42_in_parseSt426); 
+					ID23=(Token)match(input,ID,FOLLOW_ID_in_parseSt428); 
+					match(input,37,FOLLOW_37_in_parseSt430); 
+					 System.out.println((ID23!=null?ID23.getText():null)+"("+(exp24!=null?((exp_return)exp24).code:null)+")");
 					}
 					break;
 
@@ -857,26 +1010,26 @@ public class ScrawlParser extends Parser {
 
 
 	// $ANTLR start "printSt"
-	// /home/bardia/scrawl/Scrawl.g:234:1: printSt returns [String code] : 'print' exp ';' ;
+	// /home/bardia/Desktop/Scrawl/Scrawl.g:269:1: printSt returns [String code] : 'print' exp ';' ;
 	public final String printSt() throws RecognitionException {
 		String code = null;
 
 
-		ParserRuleReturnScope exp23 =null;
+		ParserRuleReturnScope exp25 =null;
 
 		try {
-			// /home/bardia/scrawl/Scrawl.g:234:30: ( 'print' exp ';' )
-			// /home/bardia/scrawl/Scrawl.g:235:5: 'print' exp ';'
+			// /home/bardia/Desktop/Scrawl/Scrawl.g:269:30: ( 'print' exp ';' )
+			// /home/bardia/Desktop/Scrawl/Scrawl.g:270:5: 'print' exp ';'
 			{
-			match(input,48,FOLLOW_48_in_printSt377); 
-			pushFollow(FOLLOW_exp_in_printSt379);
-			exp23=exp();
+			match(input,48,FOLLOW_48_in_printSt450); 
+			pushFollow(FOLLOW_exp_in_printSt452);
+			exp25=exp();
 			state._fsp--;
 
-			match(input,37,FOLLOW_37_in_printSt381); 
+			match(input,37,FOLLOW_37_in_printSt454); 
 
 			    	String type = "";
-			    	switch ((exp23!=null?((exp_return)exp23).type:null)){
+			    	switch ((exp25!=null?((exp_return)exp25).type:null)){
 			    	    case INTEGER:
 			    	        type = "I";
 			    	        break;
@@ -886,7 +1039,7 @@ public class ScrawlParser extends Parser {
 			    	}
 			 
 			        code = "getstatic java/lang/System/out Ljava/io/PrintStream; \n"
-			            + (exp23!=null?((exp_return)exp23).code:null)
+			            + (exp25!=null?((exp_return)exp25).code:null)
 			            + "invokevirtual  java/io/PrintStream/println(" + type + ")V \n";
 			    
 			}
@@ -911,115 +1064,382 @@ public class ScrawlParser extends Parser {
 
 
 	// $ANTLR start "exp"
-	// /home/bardia/scrawl/Scrawl.g:252:1: exp returns [String code, Type type] : ( STRING | variable ( selector ( element ( attribute )? )? )? | integer | selector ( element ( attribute )? )? );
+	// /home/bardia/Desktop/Scrawl/Scrawl.g:287:1: exp returns [String code, Type type] : x= multExpr ( PLS x= multExpr | MNS x= multExpr )* ;
 	public final exp_return exp() throws RecognitionException {
 		exp_return retval = new exp_return();
 		retval.start = input.LT(1);
 
-		Token STRING24=null;
-		ParserRuleReturnScope variable25 =null;
-		String selector26 =null;
-		String element27 =null;
-		String attribute28 =null;
-		Integer integer29 =null;
-		String selector30 =null;
-		String element31 =null;
-		String attribute32 =null;
+		ParserRuleReturnScope x =null;
 
 		try {
-			// /home/bardia/scrawl/Scrawl.g:252:37: ( STRING | variable ( selector ( element ( attribute )? )? )? | integer | selector ( element ( attribute )? )? )
-			int alt11=4;
+			// /home/bardia/Desktop/Scrawl/Scrawl.g:287:37: (x= multExpr ( PLS x= multExpr | MNS x= multExpr )* )
+			// /home/bardia/Desktop/Scrawl/Scrawl.g:288:2: x= multExpr ( PLS x= multExpr | MNS x= multExpr )*
+			{
+			pushFollow(FOLLOW_multExpr_in_exp476);
+			x=multExpr();
+			state._fsp--;
+
+			retval.code = (x!=null?((multExpr_return)x).code:null); retval.type = (x!=null?((multExpr_return)x).type:null);
+			// /home/bardia/Desktop/Scrawl/Scrawl.g:289:2: ( PLS x= multExpr | MNS x= multExpr )*
+			loop7:
+			while (true) {
+				int alt7=3;
+				int LA7_0 = input.LA(1);
+				if ( (LA7_0==PLS) ) {
+					alt7=1;
+				}
+				else if ( (LA7_0==MNS) ) {
+					alt7=2;
+				}
+
+				switch (alt7) {
+				case 1 :
+					// /home/bardia/Desktop/Scrawl/Scrawl.g:289:3: PLS x= multExpr
+					{
+					match(input,PLS,FOLLOW_PLS_in_exp483); 
+					pushFollow(FOLLOW_multExpr_in_exp487);
+					x=multExpr();
+					state._fsp--;
+
+
+						 	if (retval.type != Type.INTEGER || (x!=null?((multExpr_return)x).type:null) != Type.INTEGER){
+					    		System.err.println("Not supported addition");
+					    	} else {
+					    		retval.code += (x!=null?((multExpr_return)x).code:null) + "iadd\n";
+					    	}
+						
+					}
+					break;
+				case 2 :
+					// /home/bardia/Desktop/Scrawl/Scrawl.g:297:3: MNS x= multExpr
+					{
+					match(input,MNS,FOLLOW_MNS_in_exp495); 
+					pushFollow(FOLLOW_multExpr_in_exp499);
+					x=multExpr();
+					state._fsp--;
+
+
+							if (retval.type != Type.INTEGER || (x!=null?((multExpr_return)x).type:null) != Type.INTEGER){
+					    		System.err.println("Not supported multiplication");
+					    	} else {
+					    		retval.code += (x!=null?((multExpr_return)x).code:null) + "isub\n";
+					    	}
+						
+					}
+					break;
+
+				default :
+					break loop7;
+				}
+			}
+
+			}
+
+			retval.stop = input.LT(-1);
+
+		}
+		catch (RecognitionException re) {
+			reportError(re);
+			recover(input,re);
+		}
+		finally {
+			// do for sure before leaving
+		}
+		return retval;
+	}
+	// $ANTLR end "exp"
+
+
+	public static class multExpr_return extends ParserRuleReturnScope {
+		public String code;
+		public Type type;
+	};
+
+
+	// $ANTLR start "multExpr"
+	// /home/bardia/Desktop/Scrawl/Scrawl.g:307:1: multExpr returns [String code, Type type] : x= atom ( MLP x= atom )* ;
+	public final multExpr_return multExpr() throws RecognitionException {
+		multExpr_return retval = new multExpr_return();
+		retval.start = input.LT(1);
+
+		ParserRuleReturnScope x =null;
+
+		try {
+			// /home/bardia/Desktop/Scrawl/Scrawl.g:308:5: (x= atom ( MLP x= atom )* )
+			// /home/bardia/Desktop/Scrawl/Scrawl.g:308:9: x= atom ( MLP x= atom )*
+			{
+			pushFollow(FOLLOW_atom_in_multExpr526);
+			x=atom();
+			state._fsp--;
+
+			retval.code = (x!=null?((atom_return)x).code:null); retval.type = (x!=null?((atom_return)x).type:null);
+			// /home/bardia/Desktop/Scrawl/Scrawl.g:309:5: ( MLP x= atom )*
+			loop8:
+			while (true) {
+				int alt8=2;
+				int LA8_0 = input.LA(1);
+				if ( (LA8_0==MLP) ) {
+					alt8=1;
+				}
+
+				switch (alt8) {
+				case 1 :
+					// /home/bardia/Desktop/Scrawl/Scrawl.g:309:6: MLP x= atom
+					{
+					match(input,MLP,FOLLOW_MLP_in_multExpr536); 
+					pushFollow(FOLLOW_atom_in_multExpr540);
+					x=atom();
+					state._fsp--;
+
+
+					    	if (retval.type != Type.INTEGER || (x!=null?((atom_return)x).type:null) != Type.INTEGER){
+					    		System.err.println("Not supported multiplication");
+					    	} else {
+					    		retval.code += (x!=null?((atom_return)x).code:null) + "imul\n";
+					    	}
+					    	
+					    
+					}
+					break;
+
+				default :
+					break loop8;
+				}
+			}
+
+			}
+
+			retval.stop = input.LT(-1);
+
+		}
+		catch (RecognitionException re) {
+			reportError(re);
+			recover(input,re);
+		}
+		finally {
+			// do for sure before leaving
+		}
+		return retval;
+	}
+	// $ANTLR end "multExpr"
+
+
+	public static class atom_return extends ParserRuleReturnScope {
+		public String code;
+		public Type type;
+	};
+
+
+	// $ANTLR start "atom"
+	// /home/bardia/Desktop/Scrawl/Scrawl.g:319:1: atom returns [String code, Type type] : ( ID | STRING | THIS ( '@' ( TEXT ) )? | integer | selector ( index ( '@' ( TEXT | ID ) )? )? );
+	public final atom_return atom() throws RecognitionException {
+		atom_return retval = new atom_return();
+		retval.start = input.LT(1);
+
+		Token ID26=null;
+		Token STRING27=null;
+		Token ID31=null;
+		Integer integer28 =null;
+		ParserRuleReturnScope selector29 =null;
+		Integer index30 =null;
+
+		try {
+			// /home/bardia/Desktop/Scrawl/Scrawl.g:319:38: ( ID | STRING | THIS ( '@' ( TEXT ) )? | integer | selector ( index ( '@' ( TEXT | ID ) )? )? )
+			int alt13=5;
 			switch ( input.LA(1) ) {
-			case STRING:
+			case ID:
 				{
-				alt11=1;
+				alt13=1;
 				}
 				break;
-			case ID:
+			case STRING:
+				{
+				alt13=2;
+				}
+				break;
 			case THIS:
 				{
-				alt11=2;
+				alt13=3;
 				}
 				break;
 			case INTEGER:
 				{
-				alt11=3;
+				alt13=4;
 				}
 				break;
 			case LBR:
 				{
-				alt11=4;
+				alt13=5;
 				}
 				break;
 			default:
 				NoViableAltException nvae =
-					new NoViableAltException("", 11, 0, input);
+					new NoViableAltException("", 13, 0, input);
 				throw nvae;
 			}
-			switch (alt11) {
+			switch (alt13) {
 				case 1 :
-					// /home/bardia/scrawl/Scrawl.g:253:5: STRING
+					// /home/bardia/Desktop/Scrawl/Scrawl.g:320:5: ID
 					{
-					STRING24=(Token)match(input,STRING,FOLLOW_STRING_in_exp404); 
+					ID26=(Token)match(input,ID,FOLLOW_ID_in_atom564); 
 
-					            retval.code = "ldc "+ (STRING24!=null?STRING24.getText():null)  + " \n";
-					            retval.type = Type.STRING;
+					            Info info = get((ID26!=null?ID26.getText():null));
+					            retval.type = info.getType();
+					            
+					            switch(retval.type){
+					    	    case INTEGER:
+					    	        retval.code = "iload_"+info.getLocal()+"\n";
+					    	        break;
+					    	    default:
+					    	        retval.code = "aload_"+info.getLocal()+"\n";
+					    	        break;
+					            }
 					        
 					}
 					break;
 				case 2 :
-					// /home/bardia/scrawl/Scrawl.g:258:7: variable ( selector ( element ( attribute )? )? )?
+					// /home/bardia/Desktop/Scrawl/Scrawl.g:334:6: STRING
 					{
-					pushFollow(FOLLOW_variable_in_exp422);
-					variable25=variable();
+					STRING27=(Token)match(input,STRING,FOLLOW_STRING_in_atom581); 
+
+					            retval.code = "ldc "+ (STRING27!=null?STRING27.getText():null)  + " \n";
+					            retval.type = Type.STRING;
+					        
+					}
+					break;
+				case 3 :
+					// /home/bardia/Desktop/Scrawl/Scrawl.g:339:6: THIS ( '@' ( TEXT ) )?
+					{
+					match(input,THIS,FOLLOW_THIS_in_atom598); 
+
+					   		retval.code ="aload_"+getLocalIndex(whatIsThis())+"\n";
+					   		retval.type =Type.DOCUMENT;
+					    
+					// /home/bardia/Desktop/Scrawl/Scrawl.g:344:5: ( '@' ( TEXT ) )?
+					int alt9=2;
+					int LA9_0 = input.LA(1);
+					if ( (LA9_0==39) ) {
+						alt9=1;
+					}
+					switch (alt9) {
+						case 1 :
+							// /home/bardia/Desktop/Scrawl/Scrawl.g:344:6: '@' ( TEXT )
+							{
+							match(input,39,FOLLOW_39_in_atom611); 
+							// /home/bardia/Desktop/Scrawl/Scrawl.g:344:9: ( TEXT )
+							// /home/bardia/Desktop/Scrawl/Scrawl.g:344:10: TEXT
+							{
+							match(input,TEXT,FOLLOW_TEXT_in_atom613); 
+							}
+
+
+							   			retval.code += "checkcast org/jsoup/nodes/Element \n"
+										+ "invokevirtual org/jsoup/nodes/Element/text()Ljava/lang/String; \n";
+							   			retval.type = Type.STRING;
+							    	
+							}
+							break;
+
+					}
+
+					}
+					break;
+				case 4 :
+					// /home/bardia/Desktop/Scrawl/Scrawl.g:350:6: integer
+					{
+					pushFollow(FOLLOW_integer_in_atom630);
+					integer28=integer();
 					state._fsp--;
 
-					 retval.code = (variable25!=null?((variable_return)variable25).code:null); retval.type = (variable25!=null?((variable_return)variable25).type:null);
-					// /home/bardia/scrawl/Scrawl.g:259:10: ( selector ( element ( attribute )? )? )?
-					int alt8=2;
-					int LA8_0 = input.LA(1);
-					if ( (LA8_0==LBR) ) {
-						alt8=1;
+
+					            if ( -128 < integer28 && integer28 < 128){
+					            	retval.code = "bipush "+ integer28  + " \n";
+					            } else if ( -32768 < integer28 && integer28 < 32767){
+					            	retval.code = "sipush "+ integer28  + " \n";
+					            } else {
+					            	retval.code = "ldc "+ integer28  + " \n";
+					            }
+					            
+					            retval.type = Type.INTEGER;
+					        
 					}
-					switch (alt8) {
+					break;
+				case 5 :
+					// /home/bardia/Desktop/Scrawl/Scrawl.g:362:6: selector ( index ( '@' ( TEXT | ID ) )? )?
+					{
+					pushFollow(FOLLOW_selector_in_atom647);
+					selector29=selector();
+					state._fsp--;
+
+					retval.code = (selector29!=null?((selector_return)selector29).code:null); retval.type = (selector29!=null?((selector_return)selector29).type:null);
+					// /home/bardia/Desktop/Scrawl/Scrawl.g:363:6: ( index ( '@' ( TEXT | ID ) )? )?
+					int alt12=2;
+					int LA12_0 = input.LA(1);
+					if ( (LA12_0==40) ) {
+						alt12=1;
+					}
+					switch (alt12) {
 						case 1 :
-							// /home/bardia/scrawl/Scrawl.g:259:11: selector ( element ( attribute )? )?
+							// /home/bardia/Desktop/Scrawl/Scrawl.g:363:8: index ( '@' ( TEXT | ID ) )?
 							{
-							pushFollow(FOLLOW_selector_in_exp436);
-							selector26=selector();
+							pushFollow(FOLLOW_index_in_atom657);
+							index30=index();
 							state._fsp--;
 
-							 retval.code += selector26; retval.type = Type.ELEMENTS;
-							// /home/bardia/scrawl/Scrawl.g:260:6: ( element ( attribute )? )?
-							int alt7=2;
-							int LA7_0 = input.LA(1);
-							if ( (LA7_0==40) ) {
-								alt7=1;
+
+							    			retval.code += "iconst_" + index30 + "\n"
+							    				+ "invokevirtual org/jsoup/select/Elements/get(I)Ljava/lang/Object;\n";
+							    			retval.type = Type.ELEMENT;
+							    		
+							// /home/bardia/Desktop/Scrawl/Scrawl.g:369:6: ( '@' ( TEXT | ID ) )?
+							int alt11=2;
+							int LA11_0 = input.LA(1);
+							if ( (LA11_0==39) ) {
+								alt11=1;
 							}
-							switch (alt7) {
+							switch (alt11) {
 								case 1 :
-									// /home/bardia/scrawl/Scrawl.g:260:7: element ( attribute )?
+									// /home/bardia/Desktop/Scrawl/Scrawl.g:369:7: '@' ( TEXT | ID )
 									{
-									pushFollow(FOLLOW_element_in_exp446);
-									element27=element();
-									state._fsp--;
-
-									 retval.code += element27; retval.type = Type.ELEMENT;
-									// /home/bardia/scrawl/Scrawl.g:261:6: ( attribute )?
-									int alt6=2;
-									int LA6_0 = input.LA(1);
-									if ( (LA6_0==39) ) {
-										alt6=1;
+									match(input,39,FOLLOW_39_in_atom673); 
+									// /home/bardia/Desktop/Scrawl/Scrawl.g:369:10: ( TEXT | ID )
+									int alt10=2;
+									int LA10_0 = input.LA(1);
+									if ( (LA10_0==TEXT) ) {
+										alt10=1;
 									}
-									switch (alt6) {
-										case 1 :
-											// /home/bardia/scrawl/Scrawl.g:261:7: attribute
-											{
-											pushFollow(FOLLOW_attribute_in_exp456);
-											attribute28=attribute();
-											state._fsp--;
+									else if ( (LA10_0==ID) ) {
+										alt10=2;
+									}
 
-											 retval.code += attribute28; retval.type = Type.STRING;
+									else {
+										NoViableAltException nvae =
+											new NoViableAltException("", 10, 0, input);
+										throw nvae;
+									}
+
+									switch (alt10) {
+										case 1 :
+											// /home/bardia/Desktop/Scrawl/Scrawl.g:369:11: TEXT
+											{
+											match(input,TEXT,FOLLOW_TEXT_in_atom675); 
+
+											    			retval.code += "checkcast org/jsoup/nodes/Element \n"
+															+ "invokevirtual org/jsoup/nodes/Element/text()Ljava/lang/String; \n";
+											    			retval.type = Type.STRING;
+											    		
+											}
+											break;
+										case 2 :
+											// /home/bardia/Desktop/Scrawl/Scrawl.g:374:9: ID
+											{
+											ID31=(Token)match(input,ID,FOLLOW_ID_in_atom685); 
+
+											    			retval.code += "checkcast org/jsoup/nodes/Element \n"
+											    				+ "ldc \""+(ID31!=null?ID31.getText():null)+"\"\n"
+															+ "invokevirtual org/jsoup/nodes/Element/attr(Ljava/lang/String;)Ljava/lang/String\n";
+											    			retval.type = Type.STRING;	
+											    		
 											}
 											break;
 
@@ -1037,76 +1457,6 @@ public class ScrawlParser extends Parser {
 
 					}
 					break;
-				case 3 :
-					// /home/bardia/scrawl/Scrawl.g:263:7: integer
-					{
-					pushFollow(FOLLOW_integer_in_exp479);
-					integer29=integer();
-					state._fsp--;
-
-
-					            if ( -128 < integer29 && integer29 < 128){
-					            	retval.code = "bipush "+ integer29  + " \n";
-					            } else if ( -32768 < integer29 && integer29 < 32767){
-					            	retval.code = "sipush "+ integer29  + " \n";
-					            } else {
-					            	retval.code = "ldc "+ integer29  + " \n";
-					            }
-					            
-					            retval.type = Type.INTEGER;
-					        
-					}
-					break;
-				case 4 :
-					// /home/bardia/scrawl/Scrawl.g:275:6: selector ( element ( attribute )? )?
-					{
-					pushFollow(FOLLOW_selector_in_exp496);
-					selector30=selector();
-					state._fsp--;
-
-					retval.code = selector30; retval.type = Type.ELEMENTS;
-					// /home/bardia/scrawl/Scrawl.g:276:10: ( element ( attribute )? )?
-					int alt10=2;
-					int LA10_0 = input.LA(1);
-					if ( (LA10_0==40) ) {
-						alt10=1;
-					}
-					switch (alt10) {
-						case 1 :
-							// /home/bardia/scrawl/Scrawl.g:276:11: element ( attribute )?
-							{
-							pushFollow(FOLLOW_element_in_exp509);
-							element31=element();
-							state._fsp--;
-
-							 retval.code += element31; retval.type = Type.ELEMENT;
-							// /home/bardia/scrawl/Scrawl.g:277:6: ( attribute )?
-							int alt9=2;
-							int LA9_0 = input.LA(1);
-							if ( (LA9_0==39) ) {
-								alt9=1;
-							}
-							switch (alt9) {
-								case 1 :
-									// /home/bardia/scrawl/Scrawl.g:277:7: attribute
-									{
-									pushFollow(FOLLOW_attribute_in_exp519);
-									attribute32=attribute();
-									state._fsp--;
-
-									 retval.code += attribute32; retval.type = Type.STRING;
-									}
-									break;
-
-							}
-
-							}
-							break;
-
-					}
-
-					}
-					break;
 
 			}
 			retval.stop = input.LT(-1);
@@ -1121,210 +1471,29 @@ public class ScrawlParser extends Parser {
 		}
 		return retval;
 	}
-	// $ANTLR end "exp"
-
-
-
-	// $ANTLR start "element"
-	// /home/bardia/scrawl/Scrawl.g:280:1: element returns [String code] : index ;
-	public final String element() throws RecognitionException {
-		String code = null;
-
-
-		String index33 =null;
-
-		try {
-			// /home/bardia/scrawl/Scrawl.g:280:29: ( index )
-			// /home/bardia/scrawl/Scrawl.g:281:2: index
-			{
-			pushFollow(FOLLOW_index_in_element547);
-			index33=index();
-			state._fsp--;
-
-			     	
-					code = "iconst_"+Integer.valueOf(index33) +"\n"
-			    			+ "invokevirtual org/jsoup/select/Elements/get(I)Ljava/lang/Object;\n";
-			    		
-			}
-
-		}
-		catch (RecognitionException re) {
-			reportError(re);
-			recover(input,re);
-		}
-		finally {
-			// do for sure before leaving
-		}
-		return code;
-	}
-	// $ANTLR end "element"
-
-
-
-	// $ANTLR start "attribute"
-	// /home/bardia/scrawl/Scrawl.g:286:1: attribute returns [String code] : '@' ( TEXT | ID ) ;
-	public final String attribute() throws RecognitionException {
-		String code = null;
-
-
-		Token ID34=null;
-
-		try {
-			// /home/bardia/scrawl/Scrawl.g:286:31: ( '@' ( TEXT | ID ) )
-			// /home/bardia/scrawl/Scrawl.g:287:2: '@' ( TEXT | ID )
-			{
-			match(input,39,FOLLOW_39_in_attribute566); 
-			// /home/bardia/scrawl/Scrawl.g:287:5: ( TEXT | ID )
-			int alt12=2;
-			int LA12_0 = input.LA(1);
-			if ( (LA12_0==TEXT) ) {
-				alt12=1;
-			}
-			else if ( (LA12_0==ID) ) {
-				alt12=2;
-			}
-
-			else {
-				NoViableAltException nvae =
-					new NoViableAltException("", 12, 0, input);
-				throw nvae;
-			}
-
-			switch (alt12) {
-				case 1 :
-					// /home/bardia/scrawl/Scrawl.g:287:6: TEXT
-					{
-					match(input,TEXT,FOLLOW_TEXT_in_attribute568); 
-
-					    		code = "checkcast org/jsoup/nodes/Element \n"
-								+ "invokevirtual org/jsoup/nodes/Element/text()Ljava/lang/String; \n";
-					    	
-					}
-					break;
-				case 2 :
-					// /home/bardia/scrawl/Scrawl.g:291:8: ID
-					{
-					ID34=(Token)match(input,ID,FOLLOW_ID_in_attribute577); 
-					 
-							code = "checkcast org/jsoup/nodes/Element \n"
-								+ "ldc \""+(ID34!=null?ID34.getText():null)+"\"\n"
-								+ "invokevirtual org/jsoup/nodes/Element/attr(Ljava/lang/String;)Ljava/lang/String\n";
-					    	
-					}
-					break;
-
-			}
-
-			}
-
-		}
-		catch (RecognitionException re) {
-			reportError(re);
-			recover(input,re);
-		}
-		finally {
-			// do for sure before leaving
-		}
-		return code;
-	}
-	// $ANTLR end "attribute"
-
-
-	public static class variable_return extends ParserRuleReturnScope {
-		public String code;
-		public Type type;
-	};
-
-
-	// $ANTLR start "variable"
-	// /home/bardia/scrawl/Scrawl.g:297:1: variable returns [String code, Type type] : ( ID | THIS );
-	public final variable_return variable() throws RecognitionException {
-		variable_return retval = new variable_return();
-		retval.start = input.LT(1);
-
-		Token ID35=null;
-
-		try {
-			// /home/bardia/scrawl/Scrawl.g:297:43: ( ID | THIS )
-			int alt13=2;
-			int LA13_0 = input.LA(1);
-			if ( (LA13_0==ID) ) {
-				alt13=1;
-			}
-			else if ( (LA13_0==THIS) ) {
-				alt13=2;
-			}
-
-			else {
-				NoViableAltException nvae =
-					new NoViableAltException("", 13, 0, input);
-				throw nvae;
-			}
-
-			switch (alt13) {
-				case 1 :
-					// /home/bardia/scrawl/Scrawl.g:298:2: ID
-					{
-					ID35=(Token)match(input,ID,FOLLOW_ID_in_variable597); 
-
-					            Info info = get((ID35!=null?ID35.getText():null));
-					            retval.type = info.getType();
-					            
-					            switch(retval.type){
-					    	    case INTEGER:
-					    	        retval.code = "iload_"+info.getLocal()+"\n";
-					    	        break;
-					    	    default:
-					    	        retval.code = "aload_"+info.getLocal()+"\n";
-					    	        break;
-					            }
-					        
-					}
-					break;
-				case 2 :
-					// /home/bardia/scrawl/Scrawl.g:312:6: THIS
-					{
-					match(input,THIS,FOLLOW_THIS_in_variable614); 
-
-					    		retval.code ="aload_"+getLocalIndex(whatIsThis())+"\n";
-					    		retval.type =Type.DOCUMENT;
-					    	
-					}
-					break;
-
-			}
-			retval.stop = input.LT(-1);
-
-		}
-		catch (RecognitionException re) {
-			reportError(re);
-			recover(input,re);
-		}
-		finally {
-			// do for sure before leaving
-		}
-		return retval;
-	}
-	// $ANTLR end "variable"
+	// $ANTLR end "atom"
 
 
 
 	// $ANTLR start "index"
-	// /home/bardia/scrawl/Scrawl.g:318:1: index returns [String value] : '[' INTEGER ']' ;
-	public final String index() throws RecognitionException {
-		String value = null;
+	// /home/bardia/Desktop/Scrawl/Scrawl.g:382:1: index returns [Integer value] : '[' integer ']' ;
+	public final Integer index() throws RecognitionException {
+		Integer value = null;
 
 
-		Token INTEGER36=null;
+		Integer integer32 =null;
 
 		try {
-			// /home/bardia/scrawl/Scrawl.g:318:28: ( '[' INTEGER ']' )
-			// /home/bardia/scrawl/Scrawl.g:319:2: '[' INTEGER ']'
+			// /home/bardia/Desktop/Scrawl/Scrawl.g:382:29: ( '[' integer ']' )
+			// /home/bardia/Desktop/Scrawl/Scrawl.g:383:2: '[' integer ']'
 			{
-			match(input,40,FOLLOW_40_in_index638); 
-			INTEGER36=(Token)match(input,INTEGER,FOLLOW_INTEGER_in_index640); 
-			match(input,41,FOLLOW_41_in_index642); 
-			value = (INTEGER36!=null?INTEGER36.getText():null);
+			match(input,40,FOLLOW_40_in_index714); 
+			pushFollow(FOLLOW_integer_in_index716);
+			integer32=integer();
+			state._fsp--;
+
+			match(input,41,FOLLOW_41_in_index718); 
+			value = integer32;
 			}
 
 		}
@@ -1340,27 +1509,48 @@ public class ScrawlParser extends Parser {
 	// $ANTLR end "index"
 
 
+	public static class selector_return extends ParserRuleReturnScope {
+		public String code;
+		public Type type;
+	};
+
 
 	// $ANTLR start "selector"
-	// /home/bardia/scrawl/Scrawl.g:320:1: selector returns [String code] : '(' STRING ')' ;
-	public final String selector() throws RecognitionException {
-		String code = null;
+	// /home/bardia/Desktop/Scrawl/Scrawl.g:385:1: selector returns [String code, Type type] : LBR exp RBR ;
+	public final selector_return selector() throws RecognitionException {
+		selector_return retval = new selector_return();
+		retval.start = input.LT(1);
 
-
-		Token STRING37=null;
+		ParserRuleReturnScope exp33 =null;
 
 		try {
-			// /home/bardia/scrawl/Scrawl.g:320:31: ( '(' STRING ')' )
-			// /home/bardia/scrawl/Scrawl.g:321:3: '(' STRING ')'
+			// /home/bardia/Desktop/Scrawl/Scrawl.g:385:42: ( LBR exp RBR )
+			// /home/bardia/Desktop/Scrawl/Scrawl.g:386:3: LBR exp RBR
 			{
-			match(input,LBR,FOLLOW_LBR_in_selector657); 
-			STRING37=(Token)match(input,STRING,FOLLOW_STRING_in_selector659); 
-			match(input,RBR,FOLLOW_RBR_in_selector661); 
+			match(input,LBR,FOLLOW_LBR_in_selector734); 
+			pushFollow(FOLLOW_exp_in_selector736);
+			exp33=exp();
+			state._fsp--;
 
-							code =  "ldc " + (STRING37!=null?STRING37.getText():null) + "\n"
-								+ "invokevirtual org/jsoup/nodes/Document/select(Ljava/lang/String;)Lorg/jsoup/select/Elements; \n";
+			match(input,RBR,FOLLOW_RBR_in_selector738); 
+
+							retval.type = (exp33!=null?((exp_return)exp33).type:null);
+							switch((exp33!=null?((exp_return)exp33).type:null)){
+								case STRING:
+									retval.code = "aload_"+getLocalIndex(whatIsThis())+"\n"
+									+ (exp33!=null?((exp_return)exp33).code:null)
+									+ "invokevirtual org/jsoup/nodes/Document/select(Ljava/lang/String;)Lorg/jsoup/select/Elements; \n";
+									break;
+								case INTEGER:
+									retval.code = (exp33!=null?((exp_return)exp33).code:null);
+									break;
+								default:
+									System.err.println("Not supported parrentisses");
+							}
 						
 			}
+
+			retval.stop = input.LT(-1);
 
 		}
 		catch (RecognitionException re) {
@@ -1370,26 +1560,26 @@ public class ScrawlParser extends Parser {
 		finally {
 			// do for sure before leaving
 		}
-		return code;
+		return retval;
 	}
 	// $ANTLR end "selector"
 
 
 
 	// $ANTLR start "integer"
-	// /home/bardia/scrawl/Scrawl.g:330:1: integer returns [Integer value] : INTEGER ;
+	// /home/bardia/Desktop/Scrawl/Scrawl.g:406:1: integer returns [Integer value] : INTEGER ;
 	public final Integer integer() throws RecognitionException {
 		Integer value = null;
 
 
-		Token INTEGER38=null;
+		Token INTEGER34=null;
 
 		try {
-			// /home/bardia/scrawl/Scrawl.g:330:31: ( INTEGER )
-			// /home/bardia/scrawl/Scrawl.g:331:2: INTEGER
+			// /home/bardia/Desktop/Scrawl/Scrawl.g:406:31: ( INTEGER )
+			// /home/bardia/Desktop/Scrawl/Scrawl.g:407:2: INTEGER
 			{
-			INTEGER38=(Token)match(input,INTEGER,FOLLOW_INTEGER_in_integer682); 
-			value = Integer.valueOf((INTEGER38!=null?INTEGER38.getText():null));
+			INTEGER34=(Token)match(input,INTEGER,FOLLOW_INTEGER_in_integer759); 
+			value = Integer.valueOf((INTEGER34!=null?INTEGER34.getText():null));
 			}
 
 		}
@@ -1410,69 +1600,82 @@ public class ScrawlParser extends Parser {
 
 	public static final BitSet FOLLOW_mainRoutine_in_root49 = new BitSet(new long[]{0x0002000000000002L});
 	public static final BitSet FOLLOW_procedure_in_root53 = new BitSet(new long[]{0x0002000000000002L});
-	public static final BitSet FOLLOW_49_in_procedure74 = new BitSet(new long[]{0x0000000000010000L});
+	public static final BitSet FOLLOW_49_in_procedure74 = new BitSet(new long[]{0x0000000000008000L});
 	public static final BitSet FOLLOW_ID_in_procedure76 = new BitSet(new long[]{0x0004000000000000L});
 	public static final BitSet FOLLOW_block_in_procedure78 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_46_in_mainRoutine95 = new BitSet(new long[]{0x0004000000000000L});
 	public static final BitSet FOLLOW_block_in_mainRoutine97 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_50_in_block114 = new BitSet(new long[]{0x0009900010012000L});
-	public static final BitSet FOLLOW_statement_in_block132 = new BitSet(new long[]{0x0009900010012000L});
+	public static final BitSet FOLLOW_50_in_block114 = new BitSet(new long[]{0x0009900010019000L});
+	public static final BitSet FOLLOW_statement_in_block132 = new BitSet(new long[]{0x0009900010019000L});
 	public static final BitSet FOLLOW_51_in_block142 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_reqSt_in_statement159 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_assSt_in_statement168 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_foreachSt_in_statement176 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_parseSt_in_statement185 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_printSt_in_statement192 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_getReqSt_in_reqSt208 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_postReqSt_in_reqSt214 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_GET_in_getReqSt228 = new BitSet(new long[]{0x0000000A00070000L});
-	public static final BitSet FOLLOW_exp_in_getReqSt230 = new BitSet(new long[]{0x0004000000000000L});
-	public static final BitSet FOLLOW_block_in_getReqSt238 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_POST_in_postReqSt251 = new BitSet(new long[]{0x0000000200000000L});
-	public static final BitSet FOLLOW_STRING_in_postReqSt253 = new BitSet(new long[]{0x0004000000000000L});
-	public static final BitSet FOLLOW_block_in_postReqSt259 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ID_in_assSt270 = new BitSet(new long[]{0x0000004000000000L});
-	public static final BitSet FOLLOW_38_in_assSt272 = new BitSet(new long[]{0x0000000A00070000L});
-	public static final BitSet FOLLOW_exp_in_assSt274 = new BitSet(new long[]{0x0000002000000000L});
-	public static final BitSet FOLLOW_37_in_assSt276 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_44_in_foreachSt293 = new BitSet(new long[]{0x0000000A00070000L});
-	public static final BitSet FOLLOW_exp_in_foreachSt295 = new BitSet(new long[]{0x0004000000000000L});
-	public static final BitSet FOLLOW_block_in_foreachSt309 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_47_in_parseSt326 = new BitSet(new long[]{0x0000080000000000L});
-	public static final BitSet FOLLOW_43_in_parseSt328 = new BitSet(new long[]{0x0000000A00070000L});
-	public static final BitSet FOLLOW_exp_in_parseSt330 = new BitSet(new long[]{0x0000040000000000L});
-	public static final BitSet FOLLOW_42_in_parseSt332 = new BitSet(new long[]{0x0000000000010000L});
-	public static final BitSet FOLLOW_ID_in_parseSt334 = new BitSet(new long[]{0x0000002000000000L});
-	public static final BitSet FOLLOW_37_in_parseSt336 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_47_in_parseSt347 = new BitSet(new long[]{0x0000200000000000L});
-	public static final BitSet FOLLOW_45_in_parseSt349 = new BitSet(new long[]{0x0000000A00070000L});
-	public static final BitSet FOLLOW_exp_in_parseSt351 = new BitSet(new long[]{0x0000040000000000L});
-	public static final BitSet FOLLOW_42_in_parseSt353 = new BitSet(new long[]{0x0000000000010000L});
-	public static final BitSet FOLLOW_ID_in_parseSt355 = new BitSet(new long[]{0x0000002000000000L});
-	public static final BitSet FOLLOW_37_in_parseSt357 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_48_in_printSt377 = new BitSet(new long[]{0x0000000A00070000L});
-	public static final BitSet FOLLOW_exp_in_printSt379 = new BitSet(new long[]{0x0000002000000000L});
-	public static final BitSet FOLLOW_37_in_printSt381 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_STRING_in_exp404 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_variable_in_exp422 = new BitSet(new long[]{0x0000000000040002L});
-	public static final BitSet FOLLOW_selector_in_exp436 = new BitSet(new long[]{0x0000010000000002L});
-	public static final BitSet FOLLOW_element_in_exp446 = new BitSet(new long[]{0x0000008000000002L});
-	public static final BitSet FOLLOW_attribute_in_exp456 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_integer_in_exp479 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_selector_in_exp496 = new BitSet(new long[]{0x0000010000000002L});
-	public static final BitSet FOLLOW_element_in_exp509 = new BitSet(new long[]{0x0000008000000002L});
-	public static final BitSet FOLLOW_attribute_in_exp519 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_index_in_element547 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_39_in_attribute566 = new BitSet(new long[]{0x0000000400010000L});
-	public static final BitSet FOLLOW_TEXT_in_attribute568 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ID_in_attribute577 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ID_in_variable597 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_THIS_in_variable614 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_40_in_index638 = new BitSet(new long[]{0x0000000000020000L});
-	public static final BitSet FOLLOW_INTEGER_in_index640 = new BitSet(new long[]{0x0000020000000000L});
-	public static final BitSet FOLLOW_41_in_index642 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LBR_in_selector657 = new BitSet(new long[]{0x0000000200000000L});
-	public static final BitSet FOLLOW_STRING_in_selector659 = new BitSet(new long[]{0x0000000080000000L});
-	public static final BitSet FOLLOW_RBR_in_selector661 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_INTEGER_in_integer682 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ifSt_in_statement201 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_getReqSt_in_reqSt217 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_postReqSt_in_reqSt223 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_GET_in_getReqSt237 = new BitSet(new long[]{0x0000000A00068000L});
+	public static final BitSet FOLLOW_exp_in_getReqSt239 = new BitSet(new long[]{0x0004000000000000L});
+	public static final BitSet FOLLOW_block_in_getReqSt247 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_POST_in_postReqSt260 = new BitSet(new long[]{0x0000000A00068000L});
+	public static final BitSet FOLLOW_exp_in_postReqSt262 = new BitSet(new long[]{0x0004000000000000L});
+	public static final BitSet FOLLOW_block_in_postReqSt268 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_IF_in_ifSt281 = new BitSet(new long[]{0x0000000A00068000L});
+	public static final BitSet FOLLOW_conditionSt_in_ifSt283 = new BitSet(new long[]{0x0004000000000000L});
+	public static final BitSet FOLLOW_block_in_ifSt287 = new BitSet(new long[]{0x0000000000000202L});
+	public static final BitSet FOLLOW_ELSE_in_ifSt295 = new BitSet(new long[]{0x0004000000000000L});
+	public static final BitSet FOLLOW_block_in_ifSt299 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_exp_in_conditionSt323 = new BitSet(new long[]{0x0000000000000400L});
+	public static final BitSet FOLLOW_EQL_in_conditionSt325 = new BitSet(new long[]{0x0000000A00068000L});
+	public static final BitSet FOLLOW_exp_in_conditionSt329 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ID_in_assSt343 = new BitSet(new long[]{0x0000004000000000L});
+	public static final BitSet FOLLOW_38_in_assSt345 = new BitSet(new long[]{0x0000000A00068000L});
+	public static final BitSet FOLLOW_exp_in_assSt347 = new BitSet(new long[]{0x0000002000000000L});
+	public static final BitSet FOLLOW_37_in_assSt349 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_44_in_foreachSt366 = new BitSet(new long[]{0x0000000A00068000L});
+	public static final BitSet FOLLOW_exp_in_foreachSt368 = new BitSet(new long[]{0x0004000000000000L});
+	public static final BitSet FOLLOW_block_in_foreachSt382 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_47_in_parseSt399 = new BitSet(new long[]{0x0000080000000000L});
+	public static final BitSet FOLLOW_43_in_parseSt401 = new BitSet(new long[]{0x0000000A00068000L});
+	public static final BitSet FOLLOW_exp_in_parseSt403 = new BitSet(new long[]{0x0000040000000000L});
+	public static final BitSet FOLLOW_42_in_parseSt405 = new BitSet(new long[]{0x0000000000008000L});
+	public static final BitSet FOLLOW_ID_in_parseSt407 = new BitSet(new long[]{0x0000002000000000L});
+	public static final BitSet FOLLOW_37_in_parseSt409 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_47_in_parseSt420 = new BitSet(new long[]{0x0000200000000000L});
+	public static final BitSet FOLLOW_45_in_parseSt422 = new BitSet(new long[]{0x0000000A00068000L});
+	public static final BitSet FOLLOW_exp_in_parseSt424 = new BitSet(new long[]{0x0000040000000000L});
+	public static final BitSet FOLLOW_42_in_parseSt426 = new BitSet(new long[]{0x0000000000008000L});
+	public static final BitSet FOLLOW_ID_in_parseSt428 = new BitSet(new long[]{0x0000002000000000L});
+	public static final BitSet FOLLOW_37_in_parseSt430 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_48_in_printSt450 = new BitSet(new long[]{0x0000000A00068000L});
+	public static final BitSet FOLLOW_exp_in_printSt452 = new BitSet(new long[]{0x0000002000000000L});
+	public static final BitSet FOLLOW_37_in_printSt454 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_multExpr_in_exp476 = new BitSet(new long[]{0x0000000008800002L});
+	public static final BitSet FOLLOW_PLS_in_exp483 = new BitSet(new long[]{0x0000000A00068000L});
+	public static final BitSet FOLLOW_multExpr_in_exp487 = new BitSet(new long[]{0x0000000008800002L});
+	public static final BitSet FOLLOW_MNS_in_exp495 = new BitSet(new long[]{0x0000000A00068000L});
+	public static final BitSet FOLLOW_multExpr_in_exp499 = new BitSet(new long[]{0x0000000008800002L});
+	public static final BitSet FOLLOW_atom_in_multExpr526 = new BitSet(new long[]{0x0000000000400002L});
+	public static final BitSet FOLLOW_MLP_in_multExpr536 = new BitSet(new long[]{0x0000000A00068000L});
+	public static final BitSet FOLLOW_atom_in_multExpr540 = new BitSet(new long[]{0x0000000000400002L});
+	public static final BitSet FOLLOW_ID_in_atom564 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_STRING_in_atom581 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_THIS_in_atom598 = new BitSet(new long[]{0x0000008000000002L});
+	public static final BitSet FOLLOW_39_in_atom611 = new BitSet(new long[]{0x0000000400000000L});
+	public static final BitSet FOLLOW_TEXT_in_atom613 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_integer_in_atom630 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_selector_in_atom647 = new BitSet(new long[]{0x0000010000000002L});
+	public static final BitSet FOLLOW_index_in_atom657 = new BitSet(new long[]{0x0000008000000002L});
+	public static final BitSet FOLLOW_39_in_atom673 = new BitSet(new long[]{0x0000000400008000L});
+	public static final BitSet FOLLOW_TEXT_in_atom675 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ID_in_atom685 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_40_in_index714 = new BitSet(new long[]{0x0000000000020000L});
+	public static final BitSet FOLLOW_integer_in_index716 = new BitSet(new long[]{0x0000020000000000L});
+	public static final BitSet FOLLOW_41_in_index718 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LBR_in_selector734 = new BitSet(new long[]{0x0000000A00068000L});
+	public static final BitSet FOLLOW_exp_in_selector736 = new BitSet(new long[]{0x0000000080000000L});
+	public static final BitSet FOLLOW_RBR_in_selector738 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_INTEGER_in_integer759 = new BitSet(new long[]{0x0000000000000002L});
 }
